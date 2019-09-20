@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<link href="../../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../../../resorce/css/common.css" rel="stylesheet">
+<link href="../../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="class_detail">
+    <div id="container">
+        <header>
+            <a :href="'../../list/'+url" class="backbtn"></a>
+            <h1>{{ name }}</h1>
+            <a :href="'../../edit/'+url+'/'+class_id" class="rightbtn">編集</a>
+        </header>
+        <main>
+            <table class="form">
+                <tr>
+                    <th>クラス名</th>
+                    <td class="txt">{{ name }}</td>
+                </tr>
+                <tr>
+                    <th>ジャンル</th>
+                    <td class="txt">{{ genre }}</td>
+                </tr>
+                <tr>
+                    <th>対象者</th>
+                    <td id="target" class="txt">
+                        <ul></ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>レッスン日</th>
+                    <td id="lessonday">
+                        <table class="list">
+                            <thead>
+                                <tr>
+                                    <th class="cntr">曜日</th>
+                                    <th>時間</th>
+                                    <th class="cntr">振替</th>
+                                    <th class="cntr">空き</th>
+                                    <th class="cntr">グループ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <a :href="'../../group/'+url+'/'+class_id" class="reg">グループ設定</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>回数</th>
+                    <td class="txt">{{ often }}</td>
+                </tr>
+            </table>
+        </main>
+        <footer>
+            <nav>
+                <ul id="manager_navi">
+                    <li><a :href="'../../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                    <li><a :href="'../../../class/list/'+url" class="ico_class">クラス</a></li>
+                    <li><a :href="'../../../student/list/'+url" class="ico_student">生徒</a></li>
+                    <li><a :href="'../../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+                </ul>
+            </nav>
+            <div id="ad_small">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- dekita_fixed_bottom -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:50px"
+                     data-ad-client="ca-pub-6292020854220769"
+                     data-ad-slot="1491563964"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </footer>
+    </div>
+    <script src="../../../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../../../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../../../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../../../resorce/libs/vue.min.js"></script>
+    <script src="../../../resorce/js/utility.js"></script>
+    <script src="../../../resorce/js/common.js"></script>
+    <script src="../../js/detail.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137346044-2');
+    </script>
+</body>
+</html>

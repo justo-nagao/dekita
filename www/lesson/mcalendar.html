@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta property="og:url" content="" />
+<meta property="og:type" content=" website" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="できた！DEKITA" />
+<meta property="og:image" content="" />
+<meta name="description" content="" />
+<title>できた！DEKITA</title>
+<link href="../../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../../../resorce/css/common.css" rel="stylesheet">
+<link href="../../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="lesson_mcalendar">
+    
+    <div id="container">
+        <header>
+            <a href="javascript:void(0)" class="mainmenu"></a>
+            <h1 class="overlap"><span>{{ school_name }}</span>カレンダー</h1>
+            <a href="" class="rightbtn">追加</a>
+        </header>
+        
+        <dl class="period">
+            <dd>
+                <select class="class full"></select>
+            </dd>
+        </dl>
+        
+        <main>
+            <div id="monthly"></div>
+        </main>
+        
+        <section id="lesson_detail" class="modal">
+            <header>
+                <a class="closebtn"></a>
+                <h1></h1>
+            </header>
+            <main>
+            </main>
+        </section>
+        
+        <section id="lesson_edit" class="modal">
+            <header>
+                <a class="closebtn"></a>
+                <h1>レッスン変更</h1>
+            </header>
+            <main>
+                <table class="form">
+                    <tbody>
+                        <tr>
+                            <th>クラス名</th>
+                            <td id="class_name" class="txt"></td>
+                        </tr>
+                        <tr>
+                            <th>レッスン日時</th>
+                            <td class="txt">月 10:00～12:00</td>
+                        </tr>
+                        <tr>
+                            <th>変更日</th>
+                            <td><input type="date" name="lesson_date" class="full"></td>
+                        </tr>
+                        <tr>
+                            <th>変更時間</th>
+                            <td>
+                                <div class="form_range">
+                                    <input type="time" name="start_time"> ～ <input type="time" name="end_time">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>空き</th>
+                            <td><input type="number" name="vacancy"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="hidden" name="lesson_id">
+                <div class="btns">
+                    <ul>
+                        <li><button id="btn_edit_lesson" class="agree">変更</button></li>
+                    </ul>
+                </div>
+            </main>
+        </section>
+        
+        <section id="cancel" class="comfirm">
+            <h1>取消し</h1>
+            <p>取消しをしてもよろしいですか？</p>
+            <ul>
+                <li><a href="javascript:void(0)" class="cancelbtn">キャンセル</a></li>
+                <li><a href="javascript:void(0)" id="btn_cancel">OK</a></li>
+            </ul>
+        </section>
+        
+        <section id="regist" class="comfirm">
+            <h1>登録確認</h1>
+            <p>欠席情報を登録しますか？</p>
+            <ul>
+                <li><a href="javascript:void(0)" class="cancelbtn">キャンセル</a></li>
+                <li><a href="javascript:void(0)" id="btn_regist">OK</a></li>
+            </ul>
+        </section>
+        
+        <footer>
+            <nav>
+                <ul id="manager_navi">
+                    <li><a :href="'../../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                    <li><a :href="'../../../class/list/'+url" class="ico_class">クラス</a></li>
+                    <li><a :href="'../../../student/list/'+url" class="ico_student">生徒</a></li>
+                    <li><a :href="'../../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+                </ul>
+            </nav>
+            <div id="ad_small">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- dekita_fixed_bottom -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:50px"
+                     data-ad-client="ca-pub-6292020854220769"
+                     data-ad-slot="1491563964"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </footer>
+        
+        <section id="sidebar">
+            <div class="wrapper">
+                <div id="profile">
+                    <dl>
+                        <dt></dt>
+                        <dd><a href="../../../member/detail">{{ login_name }}<span></span></a></dd>
+                    </dl>
+                </div>
+                <div id="mylist">
+                    <div v-if="school.length">
+                        <h2>スクール</h2>
+                        <ul v-if="kubun === '1'">
+                            <li v-for="sch in school"><a :href="'../../../school/detail/'+sch.url+''">{{ sch.name }}</a></li>
+                            <li class="btn_add"><a href="../../../school/add">スクール追加</a></li>
+                        </ul>
+                        <ul v-else>
+                            <li v-for="sch in school"><a :href="'../../../lesson/calendar/'+sch.url+'/'">{{ sch.name }}</a></li>
+                        </ul>
+                    </div>
+                    <div v-if="student.length">
+                        <h2>生徒</h2>
+                        <ul>
+                            <li v-for="stu in student"><a :href="'../../../student/detail/'+url+'/'+stu.student_id+''">{{ stu.lastname }} {{ stu.firstname }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    
+    <div id="loading"></div>
+    
+    <script src="../../../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../../../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../../../resorce/libs/store.legacy.min.js"></script>
+    <script src="../../../resorce/libs/jquery-idleTimeout.min.js"></script>
+    <script src="../../../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../../../resorce/libs/vue.min.js"></script>
+    <script src="../../../resorce/js/utility.js"></script>
+    <script src="../../../resorce/js/common.js"></script>
+    <script src="../../../resorce/js/sidebar.js"></script>
+    <script src="../../js/mcalendar.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137346044-2');
+    </script>
+</body>
+</html>

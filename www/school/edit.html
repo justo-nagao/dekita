@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<link href="../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../../resorce/css/common.css" rel="stylesheet">
+<link href="../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="school_edit">
+    
+    <div id="container">
+        <header>
+            <a :href="'../detail/'+url" class="backbtn"></a>
+            <h1>スクール編集</h1>
+        </header>
+        <main>
+            <form>
+                <table>
+                    <tr>
+                        <th>スクール名</th>
+                        <td>
+                            <input type="text" name="name" class="full" placeholder="青空スクール">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>スクールURL</th>
+                        <td>
+                            <input type="text" name="url" class="full" placeholder="aozora" disabled>
+                            <span class="note">※ 一度登録したURLは変更できません</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th>
+                        <td>
+                            〒
+                            <input type="number" name="zip" onKeyUp="AjaxZip3.zip2addr(this,'','pref','addr');">
+                            <span class="note">※ ハイフンなしで入力してください</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>都道府県</th>
+                        <td>
+                            <input type="text" name="pref" class="full">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td>
+                            <input type="text" name="addr" class="full">
+                        </td>
+                    </tr>
+                      <tr>
+                        <th>欠席受付</th>
+                        <td id="absent">
+                            レッスン
+                            <select name="absent_type" class="txtpadding">
+                                <option value="time">時間</option>
+                                <option value="day">日</option>
+                            </select>の
+                            <div class="time">
+                                <input type="number" name="absent_hour" class="tinyint txtpadding">時間
+                                <input type="number" name="absent_minutes" class="tinyint txtpadding">分前まで
+                            </div>
+                            <div class="day">
+                                <input type="number" name="absent_day" class="tinyint txtpadding">日前まで
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>振替受付</th>
+                        <td id="transfer">
+                            レッスン
+                            <select name="transfer_type" class="txtpadding">
+                                <option value="time">時間</option>
+                                <option value="day">日</option>
+                            </select>の
+                            <div class="time">
+                                <input type="number" name="transfer_hour" class="tinyint txtpadding">時間
+                                <input type="number" name="transfer_minutes" class="tinyint txtpadding">分前まで
+                            </div>
+                            <div class="day">
+                                <input type="number" name="transfer_day" class="tinyint txtpadding">日前まで
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>振替可能回数</th>
+                        <td>月<input type="number" name="transfer_often" class="tinyint txtpadding">回まで</td>
+                    </tr>
+                    <tr>
+                        <th>手続き期限</th>
+                        <td id="expiration">
+                            <select name="expiration_type" class="txtpadding" style="float: left">
+                                <option value="none">なし</option>
+                                <option value="date">日付指定</option>
+                                <option value="period">期間指定</option>
+                            </select>
+                            <div class="date">
+                                <select name="expiration_day_month" class="txtpadding">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select> 月
+                                <select name="expiration_day_day" class="txtpadding">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select> 月まで
+                            </div>
+                            <div class="period">
+                                　欠席日から <input type="number" name="expiration_date" class="tinyint txtpadding"> 日間
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>有効期限</th>
+                        <td id="range">
+                            <select name="range_type" class="txtpadding" style="float: left">
+                                <option value="none">なし</option>
+                                <option value="date">日付指定</option>
+                                <option value="period">期間指定</option>
+                            </select>
+                            <div class="date">
+                                <select name="range_day_month" class="txtpadding">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select> 月
+                                <select name="range_day_day" class="txtpadding">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select> 月まで
+                            </div>
+                            <div class="period">
+                                　欠席日から <input type="number" name="range_date" class="tinyint txtpadding"> 日間
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <ul>
+                        <li><input type="submit" class="forward" value="保存"></li>
+                    </ul>
+                </div>
+                <p><a href="javascript:void(0)" id="show_delete" class="reg">このスクールを削除</a></p>
+            </form>
+        </main>
+        
+        <section id="delete_win" class="comfirm">
+            <h1>削除確認</h1>
+            <p>本当に削除しますか？<br>クラスや予定も<br>すべて削除されます。</p>
+            <ul>
+                <li><a href="javascript:void(0)" class="cancelbtn">キャンセル</a></li>
+                <li><a href="javascript:void(0)" id="btn_delete">OK</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <nav>
+                <ul id="manager_navi">
+                    <li><a :href="'../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                    <li><a :href="'../../class/list/'+url" class="ico_class">クラス</a></li>
+                    <li><a :href="'../../student/list/'+url" class="ico_student">生徒</a></li>
+                    <li><a :href="'../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+                </ul>
+            </nav>
+            <div id="ad_small">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- dekita_fixed_bottom -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:50px"
+                     data-ad-client="ca-pub-6292020854220769"
+                     data-ad-slot="1491563964"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </footer>
+    
+    </div>
+    
+    <script src="../../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../../resorce/libs/vue.min.js"></script>
+    <script src="../../resorce/js/utility.js"></script>
+    <script src="../../resorce/js/common.js"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script src="../js/edit.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137346044-2');
+    </script>
+</body>
+</html>

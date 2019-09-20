@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<link href="../../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../../../resorce/css/common.css" rel="stylesheet">
+<link href="../../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="lesson_calendar">
+    
+    <div id="container">
+        
+        <header>
+            <a href="javascript:void(0)" class="mainmenu" v-if="pic" v-bind:style="{ backgroundImage: 'url(' + pic + ')' }"></a>
+            <a href="javascript:void(0)" class="mainmenu" v-else></a>
+            <h1 class="overlap"><span>{{ school_name }}</span>カレンダー</h1>
+        </header>
+        
+        <div class="period">
+            <select class="student full"></select>
+            <dl>
+                <dt>振替可能</dt>
+                <dd></dd>
+            </dl>
+        </div>
+        
+        <main>
+            <div id="monthly"></div>
+        </main>
+        
+        <section id="absence" class="modal">
+            <header>
+                <a class="closebtn"></a>
+                <h1 class="overlap"></h1>
+            </header>
+            <main>
+                <table class="form">
+                    <tr>
+                        <th>レッスン日時</th>
+                        <td class="tdate txt"></td>
+                    </tr>
+                    <tr>
+                        <th>生徒名</th>
+                        <td class="student_name txt"></td>
+                    </tr>
+                </table>
+                <div class="explain">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="lesson_id">
+                <input type="hidden" name="lesson_date">
+                <input type="hidden" name="transfer">
+                <input type="hidden" name="scrub">
+                <div class="ad_large">
+                    <img src="../../../resorce/img/common/ad_large.png">
+                </div>
+                <div class="btns">
+                    <ul>
+                        <li><button id="btn_absent" class="agree">欠席申請</button></li>
+                        <li><button id="btn_absent_cancel" class="agree">欠席キャンセル</button></li>
+                        <li><button id="btn_absent_unable" class="oppose">欠席不可</button></li>
+                        <li><button id="btn_absent_scrub" class="oppose">キャンセル不可</button></li>
+                    </ul>
+                </div>
+            </main>
+        </section>
+
+        <section id="transfer" class="modal">
+            <header>
+                <a class="closebtn"></a>
+                <h1 class="overlap"></h1>
+            </header>
+            <main>
+                <table class="form">
+                    <tr>
+                        <th>レッスン日時</th>
+                        <td class="tdate txt"></td>
+                    </tr>
+                    <tr>
+                        <th>生徒名</th>
+                        <td class="student_name txt"></td>
+                    </tr>
+                </table>
+                <div class="explain">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="ad_large">
+                    <img src="../../../resorce/img/common/ad_large.png">
+                </div>
+                <input type="hidden" name="lesson_id">
+                <input type="hidden" name="lesson_date">
+                <input type="hidden" name="transfer">
+                <input type="hidden" name="scrub">
+                <div class="btns">
+                    <ul>
+                        <li><button id="btn_transfer" class="agree">振替申請</button></li>
+                        <li><button id="btn_transfer_cancel" class="agree">振替キャンセル</button></li>
+                        <li><button id="btn_transfer_unable" class="oppose">振替不可</button></li>
+                    </ul>
+                </div>
+            </main>
+        </section>
+
+        <footer>
+            <nav>
+                <ul id="member_navi">
+                    <li><a :href="'../../../lesson/calendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                </ul>
+            </nav>
+            <div id="ad_small">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- dekita_fixed_bottom -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:50px"
+                     data-ad-client="ca-pub-6292020854220769"
+                     data-ad-slot="1491563964"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </footer>
+        
+        <section id="sidebar">
+            <div class="wrapper">
+                <div id="profile">
+                    <dl>
+                        <dt v-if="pic" v-bind:style="{ backgroundImage: 'url(' + pic + ')' }"></dt>
+                        <dt v-else></dt>
+                        <dd><a href="../../../member/detail">{{ login_name }}<span></span></a></dd>
+                    </dl>
+                </div>
+                <div id="mylist">
+                    <div v-if="school.length">
+                        <h2>スクール</h2>
+                        <ul v-if="kubun === '1'">
+                            <li v-for="sch in school"><a :href="'../../../school/detail/'+sch.url+''">{{ sch.name }}</a></li>
+                            <li class="btn_add"><a href="../../../school/add">スクール追加</a></li>
+                        </ul>
+                        <ul v-else>
+                            <li v-for="sch in school"><a :href="'../../../lesson/calendar/'+sch.url+'/'">{{ sch.name }}</a></li>
+                        </ul>
+                    </div>
+                    <div v-if="student.length">
+                        <h2>生徒</h2>
+                        <ul>
+                            <li v-for="stu in student"><a :href="'../../../student/detail/'+url+'/'+stu.student_id+''">{{ stu.lastname }} {{ stu.firstname }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </div>
+
+    <input type="hidden" name="absent_type">
+    <input type="hidden" name="absent_day">
+    <input type="hidden" name="absent_hour">
+    <input type="hidden" name="absent_minutes">
+    <input type="hidden" name="transfer_type">
+    <input type="hidden" name="transfer_day">
+    <input type="hidden" name="transfer_hour">
+    <input type="hidden" name="transfer_minutes">
+    <input type="hidden" name="expiration_type">
+    <input type="hidden" name="expiration_day">
+    <input type="hidden" name="expiration_date">
+    <input type="hidden" name="range_type">
+    <input type="hidden" name="range_day">
+    <input type="hidden" name="range_date">
+    
+    <div id="loading"></div>
+
+    <script src="../../../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../../../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../../../resorce/libs/store.legacy.min.js"></script>
+    <script src="../../../resorce/libs/jquery-idleTimeout.min.js"></script>
+    <script src="../../../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../../../resorce/libs/vue.min.js"></script>
+    <script src="../../../resorce/js/utility.js"></script>
+    <script src="../../../resorce/js/common.js"></script>
+    <script src="../../../resorce/js/sidebar.js"></script>
+    <script src="../../js/calendar.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137346044-2');
+    </script>
+</body>
+</html>

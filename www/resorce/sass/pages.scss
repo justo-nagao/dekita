@@ -1,0 +1,1034 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/css3";
+
+$tabletsize:1280px;
+$mobilesize:700px;
+$basecolor:#2CC9D7;
+
+$color_1:#F8CC47;
+$color_2:#F7EE48;
+$color_3:#B4EF50;
+$color_4:#58E79F;
+$color_5:#33E1E1;
+$color_6:#6AAAEA;
+$color_7:#BF98E7;
+$color_8:#DB64DB;
+$color_9:#E3869D;
+$color_10:#FA8585;
+
+/**
+ *  権限管理
+ */
+
+body.member {
+    footer {
+        #manager_navi {
+            display: none;
+        }
+    }
+}
+
+#student_detail.member .backbtn {
+    display: none;
+}
+
+#student_detail.manager .mainmenu {
+    display: none;
+}
+
+body.manager {
+    footer {
+        #member_navi {
+            display: none;
+        }
+    }
+}
+
+body.guest,
+body.guest {
+    .backbtn {
+        display: none;
+    }
+    footer {
+        #manager_navi,
+        #member_navi {
+            display: none;
+        }
+    }
+}
+
+#student_detail,
+#student_edit,
+#oauth_login,
+#class_detail,
+#class_edit,
+#school_detail {
+    background-color: #fff;
+}
+
+#oauth_login,
+#member_add,
+#oauth_apply,
+#oauth_linkage {
+    form {
+        display: none;
+    }
+}
+
+#logo {
+    width: 100%;
+    padding: 30px 0px 50px;
+    text-align: center;
+
+    img {
+        width: 200px;
+    }
+}
+
+
+#oauth_pass table {
+    ul {
+        display: table;
+        table-layout: fixed;
+        text-align: center;
+        width: 100%;
+    }
+    li {
+        display: table-cell;
+
+        input {
+            font-size: 30px;
+            letter-spacing: 5px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+
+
+/**
+ *  カレンダー全般
+ */
+
+table.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background-color: #fff;
+
+    th,
+    td {
+        border: solid 1px #aaa;
+    }
+
+    th {
+        text-align: center;
+        background-color: #eee;
+    }
+
+    tbody {
+        td {
+            position: relative;
+            width: calc(100% / 7);
+            vertical-align: top;
+            height: 60px;
+            font-size: 11px;
+
+            span.day {
+                padding: 5px;
+            }
+
+            dfn {
+                display: block;
+                float: right;
+                margin: 2px 2px 0px 0px;
+                text-align: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 5px;
+                line-height: 180%;
+                background-color: #FFF;
+                border: solid 1px #ddd;
+                cursor: pointer;
+            }
+
+            & .plan {
+                padding: 0px 3px;
+                margin: 2px;
+                border-radius: 4px;
+                background-color: lighten($basecolor, 35%);
+            }
+
+            & .full {
+                display: none;
+            }
+
+            & .unapply {
+                background-color: lighten($basecolor, 35%);
+                cursor: pointer;
+            }
+
+            & .apply {
+                border: solid 2px #FF4D4D;
+                cursor: pointer;
+                box-shadow: 0px 1px 1px #999;
+            }
+
+            & .changed {
+                //border: solid 2px #FF4D4D;
+            }
+
+            & .vacancy {
+                //background-color: #D6EBFF !important;
+                cursor: pointer;
+            }
+
+            & .reserved {
+                background-color: #ccc !important;
+                color: #999;
+                cursor: pointer;
+            }
+
+            & .future {
+                background-color: #6DD900 !important;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            & .target {
+                background-color: lighten($basecolor, 10%);
+                cursor: pointer;
+                box-shadow: 0px 1px 1px #999;
+            }
+
+            & .absent {
+                background-color: #ddd !important;
+                cursor: pointer;
+            }
+
+            & .absent:after {
+                content: "欠";
+                position: absolute;
+                top: 14px;
+                right: 2px;
+                font-size: 10px;
+                background-color: #666;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                color: #fff;
+                text-align: center;
+                line-height: 220%;
+
+            }
+
+
+            & .done {
+                background-color: #ddd !important;
+                cursor: pointer;
+            }
+
+            & .done:after {
+                content: "済";
+                position: absolute;
+                top: 14px;
+                right: 2px;
+                font-size: 10px;
+                background-color: #666;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                color: #fff;
+                text-align: center;
+                line-height: 220%;
+            }
+
+            & .transfer {
+                //background-color: #FF8000 !important;
+                cursor: pointer;
+            }
+
+            & .transfer:after {
+                content: "振";
+                position: absolute;
+                top: 14px;
+                right: 2px;
+                font-size: 10px;
+                background-color: #59B200;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                color: #fff;
+                text-align: center;
+                line-height: 220%;
+
+            }
+
+            & .past {
+                background-color: #ccc !important;
+                cursor: pointer;
+                color: #999;
+            }
+
+            .yasumi {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                text-align: right;
+                transform: scale(0.7);
+
+                span {
+                    letter-spacing: 0px;
+                    font-size: 10px;
+                    color: #FF7373;
+
+                }
+            }
+        }
+
+        .today {
+            border: solid 2px #FFD24D;
+        }
+
+        .sun .day,
+        .holiday .day {
+            color: #FF7373 !important;
+        }
+
+        .sat .day {
+            color: #70c3f7;
+        }
+
+        th.weekday {
+            color: #858585;
+        }
+
+        .exmonth .day {
+            color: #CBCBCB;
+        }
+
+        .exmonth_sun {
+            color: #FFCCCC;
+        }
+
+        .exmonth_sat {
+            color: #B9E4FE;
+        }
+    }
+}
+
+#monthly {
+    margin-top: -70px;
+    .calhead {
+        position: relative;
+        padding: 12px 0px 12px 0px;
+        #prevmonth a {
+            position: absolute;
+            top: 8px;
+            left: 100px;
+            width: 40px;
+            border-radius: 50%;
+            height: 40px;
+            background-color: #fff;
+            padding: 10px 0px 0px 13px;
+            font-size: 13px;
+            color: $basecolor;
+            @media screen and (max-width: $mobilesize) {
+                display: none;
+            }
+        }
+
+        #nextmonth a {
+            position: absolute;
+            top: 8px;
+            left: 150px;
+            width: 40px;
+            border-radius: 50%;
+            height: 40px;
+            background-color: #fff;
+            padding: 10px 0px 0px 13px;
+            font-size: 13px;
+            color: $basecolor;
+            @media screen and (max-width: $mobilesize) {
+                display: none;
+            }
+        }
+
+        dl {
+
+            dt {
+                font-size: 36px;
+                float: left;
+                line-height: 100%;
+            }
+
+            dd {
+                font-size: 12px;
+                color: #999;
+                line-height: 140%;
+                padding-left: 50px;
+
+            }
+        }
+    }
+}
+
+/**
+ *  スクール追加
+ */
+#school_add #url {
+    background-color: beige;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    color: #000;
+}
+
+
+/**
+ *  クラス追加
+ */
+#class_add,
+#class_edit {
+
+    #target {
+        ul {
+            padding: 0px 10px;
+            overflow: hidden;
+
+            li {
+                padding: 5px 0px;
+                width: 33%;
+                float: left;
+            }
+        }
+    }
+
+    #often {
+        li {
+            display: inline-block;
+        }
+
+        div {
+            padding-top: 10px;
+            border-top: solid 1px #ddd;
+
+            select {
+                width: 100px;
+            }
+        }
+    }
+
+    #lessonday .lesson {
+        padding: 0px 30px 0px 0px;
+        margin-bottom: 10px;
+        position: relative;
+
+        p {
+            padding: 10px 0px 5px;
+        }
+
+        ul {
+            display: flex;
+
+            li {
+                width: 95%;
+                margin-right: 1%;
+
+                em {
+                    display: block;
+                    background-color: lighten($basecolor, 15%);
+                    font-size: 11px;
+                    padding: 0px 0px 0px 10px;
+                    line-height: 220%;
+                    border-radius: 4px;
+                    margin-bottom: 3px;
+                    color: #fff;
+                }
+                select,
+                input {
+                    width: 100%;
+                    background-image: none;
+                }
+            }
+        }
+
+        .delete {
+            position: absolute;
+            top: 36px;
+            right: 0px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+}
+
+
+#student_add {
+    #append th {
+        span {
+            float: right;
+        }
+    }
+}
+
+
+a.delete {
+    position: relative;
+    display: block;
+    background-color: #FF4D4D;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-indent: -9999px;
+    margin-left: auto;
+}
+
+a.delete:after {
+    width: 12px;
+    height: 3px;
+}
+
+a.delete:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fff;
+}
+
+a.delete:after {
+    margin-top: -1px;
+    margin-left: 7px;
+}
+
+
+/**
+ *  レッスン設定
+ */
+
+#lesson_mcalendar {
+    #container main {
+        padding: 0px 5px 120px;
+    }
+
+    #container .modal main {
+        padding: 55px 10px;
+    }
+
+    .period {
+        position: relative;
+        margin-top: 47px;
+        margin-bottom: 10px;
+        height: 60px;
+        padding: 5px 80px 10px 120px;
+
+        select {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 200px;
+            font-size: 15px;
+            background-position: top 12px right 10px;
+            z-index: 1;
+        }
+    }
+}
+
+#student_list {
+    #container main {
+        padding: 0px 5px 70px;
+    }
+
+    #container .modal main {
+        padding: 55px 5px;
+    }
+
+    .period {
+        position: relative;
+        margin-top: 47px;
+        margin-bottom: 10px;
+        height: 60px;
+        padding: 5px;
+        select {
+            font-size: 15px;
+            background-position: top 12px right 10px;
+            z-index: 1;
+        }
+    }
+}
+
+#lesson_calendar {
+    #container main {
+        padding: 0px 5px 70px;
+    }
+
+    #container .modal main {
+        padding: 55px 5px;
+    }
+    .period {
+        position: relative;
+        margin-top: 47px;
+        margin-bottom: 10px;
+        height: 60px;
+        padding: 5px 80px 10px 120px;
+        select {
+            width: 130px;
+            padding: 7px;
+            float: right;
+        }
+        dl {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            text-align: center;
+            background-color: $basecolor;
+            border-radius: 4px;
+            box-shadow: 0px 1px 1px #ddd;
+        }
+
+        dt {
+            font-size: 12px;
+            padding: 0px 10px;
+            color: #fff;
+        }
+
+        dd {
+            line-height: 180%;
+            height: 20px;
+            font-size: 12px;
+            background-color: #fff;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+}
+
+#student_list {
+    .period {
+        padding: 5px 5px 0px 5px;
+        height: 48px;
+        select {
+            position: inherit;
+            width: 100%;
+        }
+    }
+}
+
+#lesson_add {
+    .period {
+        position: absolute;
+        top: 47px;
+        padding: 5px 0px 5px 5px;
+        width: 100%;
+        background-color: lighten($basecolor, 40%);
+        overflow: hidden;
+        dt {
+            padding-top: 9px;
+            font-size: 12px;
+            width: 15%;
+            float: left;
+        }
+        dd {
+            width: 85%;
+            float: left;
+            input {
+                padding: 5px;
+                width: 46%;
+                font-size: 15px;
+            }
+        }
+    }
+    main {
+        padding: 170px 5px 70px;
+    }
+    #edit_lesson main,
+    #add_lesson main {
+        padding: 55px 5px 70px;
+    }
+}
+
+
+
+/**
+ *  レッスン設定
+ */
+
+#lesson_mcalendar #lesson_detail {
+    background-color: #f5f5f5;
+    .lesson {
+        background-color: #fff;
+        padding: 0px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: solid 1px #ddd;
+        box-shadow: 0px 1px 2px #ccc;
+
+        .head {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: #D6EBFF;
+            padding: 10px;
+
+            em {
+                text-align: center;
+                border-radius: 5px;
+                background-color: #fff;
+                display: inline-block;
+                padding: 0px 5px;
+                margin-left: 7px;
+                line-height: 220%;
+                font-size: 11px;
+                strong {
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    background-color: blue;
+                    border-radius: 50%;
+                    color: #fff;
+                    line-height: 180%;
+                    margin-left: 3px;
+                }
+            }
+
+            span {
+                float: right;
+            }
+
+            a {
+                color: $basecolor;
+                border: solid 1px $basecolor;
+                background-color: #fff;
+                padding: 7px 12px;
+                border-radius: 5px;
+            }
+        }
+
+        .content {
+            padding: 10px 10px 5px;
+            div.spec{
+                padding-bottom: 5px;
+                time {
+                    padding-right: 10px;
+                }
+            }
+            table.spec {
+                width: 100%;
+                border-bottom: solid 1px #ddd;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+
+                th,
+                td {
+                    width: 25%;
+                    padding: 5px;
+                    white-space: nowrap;
+                }
+            }
+
+            table.log {
+                width: 100%;
+                border-top: solid 1px #ddd;
+                border-collapse: collapse;
+                margin-bottom: 10px;
+
+                th,
+                td {
+                    padding: 10px 0px;
+                    border-bottom: solid 1px #ddd;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                }
+
+                .absent em {
+                    float: left;
+                    display: block;
+                    font-size: 11px;
+                    background-color: #999;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 220%;
+                    margin: 1px 5px 0px 0px;
+                }
+
+                .transfer em {
+                    float: left;
+                    display: block;
+                    font-size: 11px;
+                    background-color: #6DD900;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 220%;
+                    margin: 1px 5px 0px 0px;
+                }
+
+            }
+
+            a.reg {
+                background-color: #F5F5F5;
+                border: solid 1px #ddd;
+                border-radius: 4px;
+                margin: 0px 0px 5px 0px;
+            }
+            .apply {
+                .set {
+                    margin-bottom: 10px;
+                    select:nth-child(1) {
+                        width: 26%;
+                        margin-right: 1%;
+                    }
+
+                    select:nth-child(2) {
+                        width: 57%;
+                        margin-right: 1%;
+                    }
+
+                    input {
+                        width: 57%;
+                        margin: 5px 0px 0px 27%;
+                        display: none;
+                    }
+
+                    a {
+                        width: 15%;
+                        float: right;
+                        height: 50px;
+                        display: block;
+                        text-align: center;
+                        padding-top: 13px;
+                        color: #fff;
+                        font-size: 13px;
+                        background-color: $basecolor;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+/**
+ *  スクール編集
+ */
+
+#school_edit {
+
+    #absent,
+    #transfer {
+        overflow: hidden;
+        select {
+            background-image: none;
+            height: 50px;
+            padding: 7px 13px;
+        }
+
+        .time,
+        .day {
+            display: inline-block;
+        }
+
+        .day {
+            display: none;
+        }
+    }
+
+    #expiration,
+    #range {
+        overflow: hidden;
+        .date,
+        .period {
+            display: none;
+        }
+        select {
+            background-image: none;
+            height: 50px;
+            padding: 7px 13px;
+        }
+    }
+}
+
+#staff_add,
+#staff_edit {
+    #belong {
+        margin-left: 10px;
+        li {
+            line-height: 240%;
+            ul {
+                display: none;
+                margin-left: 15px;
+                .radiobox+label {
+                    padding: 2px 20px 8px 25px;
+                }
+            }
+        }
+    }
+}
+
+#staff_edit {
+    #belong {
+        li {
+            ul {
+                display: flex;
+            }
+        }
+    }
+}
+
+ul#flow {
+    background-color: #fff;
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+    letter-spacing: 0px;
+    margin-bottom: 10px;
+    border-top: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    li {
+        display: table-cell;
+        line-height: 130%;
+        padding: 0px 0px 15px;
+        color: #999;
+        border-left: solid 1px #ccc;
+        em {
+            background-color: #ddd;
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 5px 0px;
+        }
+    }
+    li.current {
+        background-color: azure;
+        color: #000;
+        em {
+            background-color: $basecolor;
+        }
+    }
+}
+
+p.lead {
+    padding: 20px;
+    text-align: center;
+    background-color: aliceblue;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#class_group {
+
+    #group table {
+        margin-bottom: 10px;
+        td {
+            select {
+                width: 100px;
+                height: 40px;
+                padding: 4px 9px;
+                background-position: top 10px right 10px;
+            }
+        }
+    }
+    #color {
+        margin: 7px 0px 0px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        transform: translateY(0%) translateX(2%);
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"]:checked+label:after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 40%;
+            display: block;
+            width: 7px;
+            height: 14px;
+            transform: rotate(45deg);
+            border-bottom: 3px solid #fff;
+            border-right: 3px solid #fff;
+        }
+        label {
+            width: 38px;
+            height: 38px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            position: relative;
+        }
+        label:first-child {
+            margin-bottom: 0px;
+            margin-right: 0px;
+        }
+    }
+    #manage {
+        #list {
+            dl {
+                position: relative;
+                border: solid 1px #ddd;
+            }
+        }
+    }
+}
+
+
+
+.color_1 {
+    background-color: lighten($color_1, 10%) !important;
+}
+
+.color_2 {
+    background-color: lighten($color_2, 10%) !important;
+}
+
+.color_3 {
+    background-color: lighten($color_3, 10%) !important;
+}
+
+.color_4 {
+    background-color: lighten($color_4, 10%) !important;
+}
+
+.color_5 {
+    background-color: lighten($color_5, 10%) !important;
+}
+
+.color_6 {
+    background-color: lighten($color_6, 10%) !important;
+}
+
+.color_7 {
+    background-color: lighten($color_7, 10%) !important;
+}
+
+.color_8 {
+    background-color: lighten($color_8, 10%) !important;
+}
+
+.color_9 {
+    background-color: lighten($color_9, 10%) !important;
+}
+
+.color_10 {
+    background-color: lighten($color_10, 10%) !important;
+}

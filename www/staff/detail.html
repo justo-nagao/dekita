@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<link href="../../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../../../resorce/css/common.css" rel="stylesheet">
+<link href="../../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="staff_detail">
+
+    <div id="container">
+        <header>
+            <a :href="'../../list/'+url" class="backbtn"></a>
+            <h1></h1>
+            <a :href="'../../edit/'+url+'/'+staff_id" class="rightbtn">編集</a>
+        </header>
+        <main>
+            <table class="form">
+                <tr>
+                    <th>氏名</th>
+                    <td id="name" class="txt"></td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td id="email" class="txt"></td>
+                </tr>
+                <tr>
+                    <th>所属</th>
+                    <td class="txt">
+                        <ul id="belong">
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>登録日時</th>
+                    <td id="create" class="txt"></td>
+                </tr>
+                <tr>
+                    <th>登録フォームURL</th>
+                    <td class="txt">
+                        <cite id="copyurl">{{ entry }}</cite>
+                    </td>
+                </tr>
+            </table>
+            <div class="btns">
+                <ul>
+                    <li><a href="javascript:void(0)" id="invitation" class="forward">招待する</a></li>
+                </ul>
+            </div>
+        </main>
+        
+        <section id="linkshare" style="display: none">
+            <a class="closebtn"></a>
+            <h2>スタッフを招待する</h2>
+            <h3>招待ページアドレスを送る</h3>
+            <p>招待ページのアドレスとパスコードを<br>スタッフに送ることでアプリに招待します。</p>
+            <ul id="share">
+                <li><a :href="'https://social-plugins.line.me/lineit/share?url='+domain+'/app/oauth/pass/'+url+''">LINE</a></li>
+                <li><a :href="'mailto:?subject='+name+'&body='+name+'への登録はこちらから%0d%0a%0d%0a▼▼▼アドレス▼▼▼%0d%0a'+domain+'/app/oauth/pass/'+url+''">メール</a></li>
+                <li id="copy"><button onmousedown="clipboadCopy()">アドレスコピー</button></li>
+            </ul>
+            <h3>パスコード</h3>
+            <ul id="passcode">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+        
+        <footer>
+            <nav>
+                <ul id="manager_navi">
+                    <li><a :href="'../../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                    <li><a :href="'../../../class/list/'+url" class="ico_class">クラス</a></li>
+                    <li><a :href="'../../../student/list/'+url" class="ico_student">生徒</a></li>
+                    <li><a :href="'../../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+                </ul>
+                <ul id="member_navi">
+                    <li><a :href="'../../../lesson/calendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                </ul>
+            </nav>
+            <div id="ad_small">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- dekita_fixed_bottom -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:50px"
+                     data-ad-client="ca-pub-6292020854220769"
+                     data-ad-slot="1491563964"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </footer>
+        
+        <section id="sidebar">
+            <div class="wrapper">
+                <div id="profile">
+                    <dl>
+                        <dt v-if="pic" v-bind:style="{ backgroundImage: 'url(' + pic + ')' }"></dt>
+                        <dt v-else></dt>
+                        <dd><a href="../../../member/detail">{{ login_name }}<span></span></a></dd>
+                    </dl>
+                </div>
+                <div id="mylist">
+                    <div v-if="school.length">
+                        <h2>スクール</h2>
+                        <ul v-if="kubun === '1'">
+                            <li v-for="sch in school"><a :href="'../../../school/detail/'+sch.url+''">{{ sch.name }}</a></li>
+                            <li class="btn_add"><a href="../../../school/add">スクール追加</a></li>
+                        </ul>
+                        <ul v-else>
+                            <li v-for="sch in school"><a :href="'../../../lesson/calendar/'+sch.url+'/'">{{ sch.name }}</a></li>
+                        </ul>
+                    </div>
+                    <div v-if="student.length">
+                        <h2>生徒</h2>
+                        <ul>
+                            <li v-for="stu in student"><a :href="'../../../student/detail/'+url+'/'+stu.student_id+''">{{ stu.lastname }} {{ stu.firstname }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../../../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../../../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../../../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../../../resorce/libs/vue.min.js"></script>
+    <script src="../../../resorce/js/utility.js"></script>
+    <script src="../../../resorce/js/common.js"></script>
+    <script src="../../../resorce/js/sidebar.js"></script>
+    <script src="../../js/detail.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137346044-2');
+    </script>
+</body>
+</html>

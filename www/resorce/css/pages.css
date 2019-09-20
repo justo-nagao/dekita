@@ -1,0 +1,878 @@
+@charset "UTF-8";
+/**
+ *  権限管理
+ */
+/* line 26, ../sass/pages.scss */
+body.member footer #manager_navi {
+  display: none; }
+
+/* line 32, ../sass/pages.scss */
+#student_detail.member .backbtn {
+  display: none; }
+
+/* line 36, ../sass/pages.scss */
+#student_detail.manager .mainmenu {
+  display: none; }
+
+/* line 42, ../sass/pages.scss */
+body.manager footer #member_navi {
+  display: none; }
+
+/* line 50, ../sass/pages.scss */
+body.guest .backbtn,
+body.guest .backbtn {
+  display: none; }
+/* line 54, ../sass/pages.scss */
+body.guest footer #manager_navi,
+body.guest footer #member_navi,
+body.guest footer #manager_navi,
+body.guest footer #member_navi {
+  display: none; }
+
+/* line 61, ../sass/pages.scss */
+#student_detail,
+#student_edit,
+#oauth_login,
+#class_detail,
+#class_edit,
+#school_detail {
+  background-color: #fff; }
+
+/* line 74, ../sass/pages.scss */
+#oauth_login form,
+#member_add form,
+#oauth_apply form,
+#oauth_linkage form {
+  display: none; }
+
+/* line 79, ../sass/pages.scss */
+#logo {
+  width: 100%;
+  padding: 30px 0px 50px;
+  text-align: center; }
+  /* line 84, ../sass/pages.scss */
+  #logo img {
+    width: 200px; }
+
+/* line 91, ../sass/pages.scss */
+#oauth_pass table ul {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  width: 100%; }
+/* line 97, ../sass/pages.scss */
+#oauth_pass table li {
+  display: table-cell; }
+  /* line 100, ../sass/pages.scss */
+  #oauth_pass table li input {
+    font-size: 30px;
+    letter-spacing: 5px;
+    width: 100%;
+    text-align: center; }
+
+/**
+ *  カレンダー全般
+ */
+/* line 115, ../sass/pages.scss */
+table.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background-color: #fff; }
+  /* line 121, ../sass/pages.scss */
+  table.calendar th,
+  table.calendar td {
+    border: solid 1px #aaa; }
+  /* line 126, ../sass/pages.scss */
+  table.calendar th {
+    text-align: center;
+    background-color: #eee; }
+  /* line 132, ../sass/pages.scss */
+  table.calendar tbody td {
+    position: relative;
+    width: calc(100% / 7);
+    vertical-align: top;
+    height: 60px;
+    font-size: 11px; }
+    /* line 139, ../sass/pages.scss */
+    table.calendar tbody td span.day {
+      padding: 5px; }
+    /* line 143, ../sass/pages.scss */
+    table.calendar tbody td dfn {
+      display: block;
+      float: right;
+      margin: 2px 2px 0px 0px;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      line-height: 180%;
+      background-color: #FFF;
+      border: solid 1px #ddd;
+      cursor: pointer; }
+    /* line 157, ../sass/pages.scss */
+    table.calendar tbody td .plan {
+      padding: 0px 3px;
+      margin: 2px;
+      border-radius: 4px;
+      background-color: #c2eff3; }
+    /* line 164, ../sass/pages.scss */
+    table.calendar tbody td .full {
+      display: none; }
+    /* line 168, ../sass/pages.scss */
+    table.calendar tbody td .unapply {
+      background-color: #c2eff3;
+      cursor: pointer; }
+    /* line 173, ../sass/pages.scss */
+    table.calendar tbody td .apply {
+      border: solid 2px #FF4D4D;
+      cursor: pointer;
+      box-shadow: 0px 1px 1px #999; }
+    /* line 183, ../sass/pages.scss */
+    table.calendar tbody td .vacancy {
+      cursor: pointer; }
+    /* line 188, ../sass/pages.scss */
+    table.calendar tbody td .reserved {
+      background-color: #ccc !important;
+      color: #999;
+      cursor: pointer; }
+    /* line 194, ../sass/pages.scss */
+    table.calendar tbody td .future {
+      background-color: #6DD900 !important;
+      color: #fff;
+      cursor: pointer; }
+    /* line 200, ../sass/pages.scss */
+    table.calendar tbody td .target {
+      background-color: #57d4df;
+      cursor: pointer;
+      box-shadow: 0px 1px 1px #999; }
+    /* line 206, ../sass/pages.scss */
+    table.calendar tbody td .absent {
+      background-color: #ddd !important;
+      cursor: pointer; }
+    /* line 211, ../sass/pages.scss */
+    table.calendar tbody td .absent:after {
+      content: "欠";
+      position: absolute;
+      top: 14px;
+      right: 2px;
+      font-size: 10px;
+      background-color: #666;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      line-height: 220%; }
+    /* line 228, ../sass/pages.scss */
+    table.calendar tbody td .done {
+      background-color: #ddd !important;
+      cursor: pointer; }
+    /* line 233, ../sass/pages.scss */
+    table.calendar tbody td .done:after {
+      content: "済";
+      position: absolute;
+      top: 14px;
+      right: 2px;
+      font-size: 10px;
+      background-color: #666;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      line-height: 220%; }
+    /* line 248, ../sass/pages.scss */
+    table.calendar tbody td .transfer {
+      cursor: pointer; }
+    /* line 253, ../sass/pages.scss */
+    table.calendar tbody td .transfer:after {
+      content: "振";
+      position: absolute;
+      top: 14px;
+      right: 2px;
+      font-size: 10px;
+      background-color: #59B200;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      line-height: 220%; }
+    /* line 269, ../sass/pages.scss */
+    table.calendar tbody td .past {
+      background-color: #ccc !important;
+      cursor: pointer;
+      color: #999; }
+    /* line 275, ../sass/pages.scss */
+    table.calendar tbody td .yasumi {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      text-align: right;
+      transform: scale(0.7); }
+      /* line 282, ../sass/pages.scss */
+      table.calendar tbody td .yasumi span {
+        letter-spacing: 0px;
+        font-size: 10px;
+        color: #FF7373; }
+  /* line 291, ../sass/pages.scss */
+  table.calendar tbody .today {
+    border: solid 2px #FFD24D; }
+  /* line 295, ../sass/pages.scss */
+  table.calendar tbody .sun .day,
+  table.calendar tbody .holiday .day {
+    color: #FF7373 !important; }
+  /* line 300, ../sass/pages.scss */
+  table.calendar tbody .sat .day {
+    color: #70c3f7; }
+  /* line 304, ../sass/pages.scss */
+  table.calendar tbody th.weekday {
+    color: #858585; }
+  /* line 308, ../sass/pages.scss */
+  table.calendar tbody .exmonth .day {
+    color: #CBCBCB; }
+  /* line 312, ../sass/pages.scss */
+  table.calendar tbody .exmonth_sun {
+    color: #FFCCCC; }
+  /* line 316, ../sass/pages.scss */
+  table.calendar tbody .exmonth_sat {
+    color: #B9E4FE; }
+
+/* line 322, ../sass/pages.scss */
+#monthly {
+  margin-top: -70px; }
+  /* line 324, ../sass/pages.scss */
+  #monthly .calhead {
+    position: relative;
+    padding: 12px 0px 12px 0px; }
+    /* line 327, ../sass/pages.scss */
+    #monthly .calhead #prevmonth a {
+      position: absolute;
+      top: 8px;
+      left: 100px;
+      width: 40px;
+      border-radius: 50%;
+      height: 40px;
+      background-color: #fff;
+      padding: 10px 0px 0px 13px;
+      font-size: 13px;
+      color: #2CC9D7; }
+      @media screen and (max-width: 700px) {
+        /* line 327, ../sass/pages.scss */
+        #monthly .calhead #prevmonth a {
+          display: none; } }
+    /* line 343, ../sass/pages.scss */
+    #monthly .calhead #nextmonth a {
+      position: absolute;
+      top: 8px;
+      left: 150px;
+      width: 40px;
+      border-radius: 50%;
+      height: 40px;
+      background-color: #fff;
+      padding: 10px 0px 0px 13px;
+      font-size: 13px;
+      color: #2CC9D7; }
+      @media screen and (max-width: 700px) {
+        /* line 343, ../sass/pages.scss */
+        #monthly .calhead #nextmonth a {
+          display: none; } }
+    /* line 361, ../sass/pages.scss */
+    #monthly .calhead dl dt {
+      font-size: 36px;
+      float: left;
+      line-height: 100%; }
+    /* line 367, ../sass/pages.scss */
+    #monthly .calhead dl dd {
+      font-size: 12px;
+      color: #999;
+      line-height: 140%;
+      padding-left: 50px; }
+
+/**
+ *  スクール追加
+ */
+/* line 381, ../sass/pages.scss */
+#school_add #url {
+  background-color: beige;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  color: #000; }
+
+/**
+ *  クラス追加
+ */
+/* line 400, ../sass/pages.scss */
+#class_add #target ul,
+#class_edit #target ul {
+  padding: 0px 10px;
+  overflow: hidden; }
+  /* line 404, ../sass/pages.scss */
+  #class_add #target ul li,
+  #class_edit #target ul li {
+    padding: 5px 0px;
+    width: 33%;
+    float: left; }
+/* line 413, ../sass/pages.scss */
+#class_add #often li,
+#class_edit #often li {
+  display: inline-block; }
+/* line 417, ../sass/pages.scss */
+#class_add #often div,
+#class_edit #often div {
+  padding-top: 10px;
+  border-top: solid 1px #ddd; }
+  /* line 421, ../sass/pages.scss */
+  #class_add #often div select,
+  #class_edit #often div select {
+    width: 100px; }
+/* line 427, ../sass/pages.scss */
+#class_add #lessonday .lesson,
+#class_edit #lessonday .lesson {
+  padding: 0px 30px 0px 0px;
+  margin-bottom: 10px;
+  position: relative; }
+  /* line 432, ../sass/pages.scss */
+  #class_add #lessonday .lesson p,
+  #class_edit #lessonday .lesson p {
+    padding: 10px 0px 5px; }
+  /* line 436, ../sass/pages.scss */
+  #class_add #lessonday .lesson ul,
+  #class_edit #lessonday .lesson ul {
+    display: flex; }
+    /* line 439, ../sass/pages.scss */
+    #class_add #lessonday .lesson ul li,
+    #class_edit #lessonday .lesson ul li {
+      width: 95%;
+      margin-right: 1%; }
+      /* line 443, ../sass/pages.scss */
+      #class_add #lessonday .lesson ul li em,
+      #class_edit #lessonday .lesson ul li em {
+        display: block;
+        background-color: #6cd9e3;
+        font-size: 11px;
+        padding: 0px 0px 0px 10px;
+        line-height: 220%;
+        border-radius: 4px;
+        margin-bottom: 3px;
+        color: #fff; }
+      /* line 453, ../sass/pages.scss */
+      #class_add #lessonday .lesson ul li select,
+      #class_add #lessonday .lesson ul li input,
+      #class_edit #lessonday .lesson ul li select,
+      #class_edit #lessonday .lesson ul li input {
+        width: 100%;
+        background-image: none; }
+  /* line 461, ../sass/pages.scss */
+  #class_add #lessonday .lesson .delete,
+  #class_edit #lessonday .lesson .delete {
+    position: absolute;
+    top: 36px;
+    right: 0px;
+    display: inline-block;
+    cursor: pointer; }
+
+/* line 474, ../sass/pages.scss */
+#student_add #append th span {
+  float: right; }
+
+/* line 481, ../sass/pages.scss */
+a.delete {
+  position: relative;
+  display: block;
+  background-color: #FF4D4D;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  text-indent: -9999px;
+  margin-left: auto; }
+
+/* line 492, ../sass/pages.scss */
+a.delete:after {
+  width: 12px;
+  height: 3px; }
+
+/* line 497, ../sass/pages.scss */
+a.delete:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: #fff; }
+
+/* line 506, ../sass/pages.scss */
+a.delete:after {
+  margin-top: -1px;
+  margin-left: 7px; }
+
+/**
+ *  レッスン設定
+ */
+/* line 517, ../sass/pages.scss */
+#lesson_mcalendar #container main {
+  padding: 0px 5px 120px; }
+/* line 521, ../sass/pages.scss */
+#lesson_mcalendar #container .modal main {
+  padding: 55px 10px; }
+/* line 525, ../sass/pages.scss */
+#lesson_mcalendar .period {
+  position: relative;
+  margin-top: 47px;
+  margin-bottom: 10px;
+  height: 60px;
+  padding: 5px 80px 10px 120px; }
+  /* line 532, ../sass/pages.scss */
+  #lesson_mcalendar .period select {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 200px;
+    font-size: 15px;
+    background-position: top 12px right 10px;
+    z-index: 1; }
+
+/* line 545, ../sass/pages.scss */
+#student_list #container main {
+  padding: 0px 5px 70px; }
+/* line 549, ../sass/pages.scss */
+#student_list #container .modal main {
+  padding: 55px 5px; }
+/* line 553, ../sass/pages.scss */
+#student_list .period {
+  position: relative;
+  margin-top: 47px;
+  margin-bottom: 10px;
+  height: 60px;
+  padding: 5px; }
+  /* line 559, ../sass/pages.scss */
+  #student_list .period select {
+    font-size: 15px;
+    background-position: top 12px right 10px;
+    z-index: 1; }
+
+/* line 568, ../sass/pages.scss */
+#lesson_calendar #container main {
+  padding: 0px 5px 70px; }
+/* line 572, ../sass/pages.scss */
+#lesson_calendar #container .modal main {
+  padding: 55px 5px; }
+/* line 575, ../sass/pages.scss */
+#lesson_calendar .period {
+  position: relative;
+  margin-top: 47px;
+  margin-bottom: 10px;
+  height: 60px;
+  padding: 5px 80px 10px 120px; }
+  /* line 581, ../sass/pages.scss */
+  #lesson_calendar .period select {
+    width: 130px;
+    padding: 7px;
+    float: right; }
+  /* line 586, ../sass/pages.scss */
+  #lesson_calendar .period dl {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-align: center;
+    background-color: #2CC9D7;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px #ddd; }
+  /* line 596, ../sass/pages.scss */
+  #lesson_calendar .period dt {
+    font-size: 12px;
+    padding: 0px 10px;
+    color: #fff; }
+  /* line 602, ../sass/pages.scss */
+  #lesson_calendar .period dd {
+    line-height: 180%;
+    height: 20px;
+    font-size: 12px;
+    background-color: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px; }
+
+/* line 614, ../sass/pages.scss */
+#student_list .period {
+  padding: 5px 5px 0px 5px;
+  height: 48px; }
+  /* line 617, ../sass/pages.scss */
+  #student_list .period select {
+    position: inherit;
+    width: 100%; }
+
+/* line 625, ../sass/pages.scss */
+#lesson_add .period {
+  position: absolute;
+  top: 47px;
+  padding: 5px 0px 5px 5px;
+  width: 100%;
+  background-color: #d7f5f8;
+  overflow: hidden; }
+  /* line 632, ../sass/pages.scss */
+  #lesson_add .period dt {
+    padding-top: 9px;
+    font-size: 12px;
+    width: 15%;
+    float: left; }
+  /* line 638, ../sass/pages.scss */
+  #lesson_add .period dd {
+    width: 85%;
+    float: left; }
+    /* line 641, ../sass/pages.scss */
+    #lesson_add .period dd input {
+      padding: 5px;
+      width: 46%;
+      font-size: 15px; }
+/* line 648, ../sass/pages.scss */
+#lesson_add main {
+  padding: 170px 5px 70px; }
+/* line 651, ../sass/pages.scss */
+#lesson_add #edit_lesson main,
+#lesson_add #add_lesson main {
+  padding: 55px 5px 70px; }
+
+/**
+ *  レッスン設定
+ */
+/* line 663, ../sass/pages.scss */
+#lesson_mcalendar #lesson_detail {
+  background-color: #f5f5f5; }
+  /* line 665, ../sass/pages.scss */
+  #lesson_mcalendar #lesson_detail .lesson {
+    background-color: #fff;
+    padding: 0px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: solid 1px #ddd;
+    box-shadow: 0px 1px 2px #ccc; }
+    /* line 673, ../sass/pages.scss */
+    #lesson_mcalendar #lesson_detail .lesson .head {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color: #D6EBFF;
+      padding: 10px; }
+      /* line 679, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .head em {
+        text-align: center;
+        border-radius: 5px;
+        background-color: #fff;
+        display: inline-block;
+        padding: 0px 5px;
+        margin-left: 7px;
+        line-height: 220%;
+        font-size: 11px; }
+        /* line 688, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .head em strong {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          background-color: blue;
+          border-radius: 50%;
+          color: #fff;
+          line-height: 180%;
+          margin-left: 3px; }
+      /* line 700, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .head span {
+        float: right; }
+      /* line 704, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .head a {
+        color: #2CC9D7;
+        border: solid 1px #2CC9D7;
+        background-color: #fff;
+        padding: 7px 12px;
+        border-radius: 5px; }
+    /* line 713, ../sass/pages.scss */
+    #lesson_mcalendar #lesson_detail .lesson .content {
+      padding: 10px 10px 5px; }
+      /* line 715, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .content div.spec {
+        padding-bottom: 5px; }
+        /* line 717, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content div.spec time {
+          padding-right: 10px; }
+      /* line 721, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .content table.spec {
+        width: 100%;
+        border-bottom: solid 1px #ddd;
+        margin-bottom: 10px;
+        padding-bottom: 10px; }
+        /* line 727, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content table.spec th,
+        #lesson_mcalendar #lesson_detail .lesson .content table.spec td {
+          width: 25%;
+          padding: 5px;
+          white-space: nowrap; }
+      /* line 735, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .content table.log {
+        width: 100%;
+        border-top: solid 1px #ddd;
+        border-collapse: collapse;
+        margin-bottom: 10px; }
+        /* line 741, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content table.log th,
+        #lesson_mcalendar #lesson_detail .lesson .content table.log td {
+          padding: 10px 0px;
+          border-bottom: solid 1px #ddd; }
+        /* line 747, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content table.log th {
+          background-color: #f2f2f2; }
+        /* line 751, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content table.log .absent em {
+          float: left;
+          display: block;
+          font-size: 11px;
+          background-color: #999;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          color: #fff;
+          text-align: center;
+          line-height: 220%;
+          margin: 1px 5px 0px 0px; }
+        /* line 765, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content table.log .transfer em {
+          float: left;
+          display: block;
+          font-size: 11px;
+          background-color: #6DD900;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          color: #fff;
+          text-align: center;
+          line-height: 220%;
+          margin: 1px 5px 0px 0px; }
+      /* line 781, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .content a.reg {
+        background-color: #F5F5F5;
+        border: solid 1px #ddd;
+        border-radius: 4px;
+        margin: 0px 0px 5px 0px; }
+      /* line 788, ../sass/pages.scss */
+      #lesson_mcalendar #lesson_detail .lesson .content .apply .set {
+        margin-bottom: 10px; }
+        /* line 790, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content .apply .set select:nth-child(1) {
+          width: 26%;
+          margin-right: 1%; }
+        /* line 795, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content .apply .set select:nth-child(2) {
+          width: 57%;
+          margin-right: 1%; }
+        /* line 800, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content .apply .set input {
+          width: 57%;
+          margin: 5px 0px 0px 27%;
+          display: none; }
+        /* line 806, ../sass/pages.scss */
+        #lesson_mcalendar #lesson_detail .lesson .content .apply .set a {
+          width: 15%;
+          float: right;
+          height: 50px;
+          display: block;
+          text-align: center;
+          padding-top: 13px;
+          color: #fff;
+          font-size: 13px;
+          background-color: #2CC9D7;
+          border-radius: 4px; }
+
+/**
+ *  スクール編集
+ */
+/* line 832, ../sass/pages.scss */
+#school_edit #absent,
+#school_edit #transfer {
+  overflow: hidden; }
+  /* line 835, ../sass/pages.scss */
+  #school_edit #absent select,
+  #school_edit #transfer select {
+    background-image: none;
+    height: 50px;
+    padding: 7px 13px; }
+  /* line 841, ../sass/pages.scss */
+  #school_edit #absent .time,
+  #school_edit #absent .day,
+  #school_edit #transfer .time,
+  #school_edit #transfer .day {
+    display: inline-block; }
+  /* line 846, ../sass/pages.scss */
+  #school_edit #absent .day,
+  #school_edit #transfer .day {
+    display: none; }
+/* line 851, ../sass/pages.scss */
+#school_edit #expiration,
+#school_edit #range {
+  overflow: hidden; }
+  /* line 854, ../sass/pages.scss */
+  #school_edit #expiration .date,
+  #school_edit #expiration .period,
+  #school_edit #range .date,
+  #school_edit #range .period {
+    display: none; }
+  /* line 858, ../sass/pages.scss */
+  #school_edit #expiration select,
+  #school_edit #range select {
+    background-image: none;
+    height: 50px;
+    padding: 7px 13px; }
+
+/* line 868, ../sass/pages.scss */
+#staff_add #belong,
+#staff_edit #belong {
+  margin-left: 10px; }
+  /* line 870, ../sass/pages.scss */
+  #staff_add #belong li,
+  #staff_edit #belong li {
+    line-height: 240%; }
+    /* line 872, ../sass/pages.scss */
+    #staff_add #belong li ul,
+    #staff_edit #belong li ul {
+      display: none;
+      margin-left: 15px; }
+      /* line 875, ../sass/pages.scss */
+      #staff_add #belong li ul .radiobox + label,
+      #staff_edit #belong li ul .radiobox + label {
+        padding: 2px 20px 8px 25px; }
+
+/* line 886, ../sass/pages.scss */
+#staff_edit #belong li ul {
+  display: flex; }
+
+/* line 893, ../sass/pages.scss */
+ul#flow {
+  background-color: #fff;
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  width: 100%;
+  font-size: 11px;
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+  border-top: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #ccc; }
+  /* line 905, ../sass/pages.scss */
+  ul#flow li {
+    display: table-cell;
+    line-height: 130%;
+    padding: 0px 0px 15px;
+    color: #999;
+    border-left: solid 1px #ccc; }
+    /* line 911, ../sass/pages.scss */
+    ul#flow li em {
+      background-color: #ddd;
+      display: block;
+      text-align: center;
+      margin-bottom: 15px;
+      padding: 5px 0px; }
+  /* line 919, ../sass/pages.scss */
+  ul#flow li.current {
+    background-color: azure;
+    color: #000; }
+    /* line 922, ../sass/pages.scss */
+    ul#flow li.current em {
+      background-color: #2CC9D7; }
+
+/* line 928, ../sass/pages.scss */
+p.lead {
+  padding: 20px;
+  text-align: center;
+  background-color: aliceblue;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px; }
+
+/* line 939, ../sass/pages.scss */
+#class_group #group table {
+  margin-bottom: 10px; }
+  /* line 942, ../sass/pages.scss */
+  #class_group #group table td select {
+    width: 100px;
+    height: 40px;
+    padding: 4px 9px;
+    background-position: top 10px right 10px; }
+/* line 950, ../sass/pages.scss */
+#class_group #color {
+  margin: 7px 0px 0px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  transform: translateY(0%) translateX(2%); }
+  /* line 956, ../sass/pages.scss */
+  #class_group #color input[type="radio"] {
+    display: none; }
+  /* line 959, ../sass/pages.scss */
+  #class_group #color input[type="radio"]:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 40%;
+    display: block;
+    width: 7px;
+    height: 14px;
+    transform: rotate(45deg);
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff; }
+  /* line 971, ../sass/pages.scss */
+  #class_group #color label {
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    position: relative; }
+  /* line 979, ../sass/pages.scss */
+  #class_group #color label:first-child {
+    margin-bottom: 0px;
+    margin-right: 0px; }
+/* line 986, ../sass/pages.scss */
+#class_group #manage #list dl {
+  position: relative;
+  border: solid 1px #ddd; }
+
+/* line 996, ../sass/pages.scss */
+.color_1 {
+  background-color: #fada78 !important; }
+
+/* line 1000, ../sass/pages.scss */
+.color_2 {
+  background-color: #f9f379 !important; }
+
+/* line 1004, ../sass/pages.scss */
+.color_3 {
+  background-color: #c8f37f !important; }
+
+/* line 1008, ../sass/pages.scss */
+.color_4 {
+  background-color: #85edb9 !important; }
+
+/* line 1012, ../sass/pages.scss */
+.color_5 {
+  background-color: #5fe8e8 !important; }
+
+/* line 1016, ../sass/pages.scss */
+.color_6 {
+  background-color: #97c4f0 !important; }
+
+/* line 1020, ../sass/pages.scss */
+.color_7 {
+  background-color: #d9c1f1 !important; }
+
+/* line 1024, ../sass/pages.scss */
+.color_8 {
+  background-color: #e58de5 !important; }
+
+/* line 1028, ../sass/pages.scss */
+.color_9 {
+  background-color: #edafbf !important; }
+
+/* line 1032, ../sass/pages.scss */
+.color_10 {
+  background-color: #fcb6b6 !important; }

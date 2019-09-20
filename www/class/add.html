@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<link href="../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../../resorce/css/common.css" rel="stylesheet">
+<link href="../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="class_add">
+    
+    <div id="container">
+        <header>
+            <a :href="'../list/'+url" class="backbtn"></a>
+            <h1 class="overlap"><span>{{ school_name }}</span>クラス登録</h1>
+        </header>
+        <main>
+            <form>
+                <table>
+                    <tr>
+                        <th>クラス名</th>
+                        <td>
+                            <input type="text" name="name" class="name full" placeholder="幼児クラス">
+                            <span class="note">※ クラスは設定完了後に追加で作成が可能です</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>ジャンル</th>
+                        <td>
+                            <select name="genre" class="genre full">
+                                <option value="1">スイミング</option>
+                                <option value="2">英語</option>
+                                <option value="3">バレエ</option>
+                                <option value="4">ダンス</option>
+                                <option value="5">その他</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>対象者</th>
+                        <td id="target">
+                            <ul>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="0"><span class="checkbox-parts">指定なし</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="1"><span class="checkbox-parts">ベビー</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="2"><span class="checkbox-parts">幼児</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="3" checked><span class="checkbox-parts">小学生</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="4"><span class="checkbox-parts">中学生</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="5"><span class="checkbox-parts">高校生</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="6"><span class="checkbox-parts">大学生</span></label></li>
+                                <li><label><input type="checkbox" name="target[]" class="target checkbox-input" value="7"><span class="checkbox-parts">一般</span></label></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>レッスン日</th>
+                        <td>
+                            <div id="lessonday"></div>
+                            <span class="note">※ 振替「不可」の場合は空きがでても振替ができません</span>
+                            <span class="note">※ 欠席がでると「空き」が+1となります</span>
+                            <span class="note">※ 空きが0の場合は振替はできません</span>
+                            <a href="javascript:void(0)" id="adds" class="reg">レッスン日の追加</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>回数</th>
+                        <td id="often">
+                            <ul>
+                                <li><input type="radio" name="often_type" class="radiobox" id="often_type_01" value="1" checked><label for="often_type_01">回数指定</label></li>
+                                <li><input type="radio" name="often_type" class="radiobox" id="often_type_02" value="0"><label for="often_type_02">自由参加</label></li>
+                            </ul>
+                            <div>
+                                <select name="often_week" class="often_week">
+                                    <option value="week">週</option>
+                                    <option value="month">月</option>
+                                </select>
+                                <input type="number" name="often_start" class="often_start" value="1"> 回 〜 <input type="number" name="often_end" class="often_end" value="0"> 回
+                            </div>
+                            <span class="note">※ 週1回の場合は1回〜0回で入力してください</span>
+                            <span class="note">※ 週1〜2回の場合は1回〜2回で入力してください</span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <ul>
+                        <li><input type="submit" class="forward" value="カレンダー設定"></li>
+                    </ul>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <nav>
+                <ul id="manager_navi">
+                    <li><a :href="'../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                    <li><a :href="'../../class/list/'+url" class="ico_class">クラス</a></li>
+                    <li><a :href="'../../student/list/'+url" class="ico_student">生徒</a></li>
+                    <li><a :href="'../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+    
+    <script src="../../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../../resorce/libs/vue.min.js"></script>
+    <script src="../../resorce/js/utility.js"></script>
+    <script src="../../resorce/js/common.js"></script>
+    <script src="../js/add.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137346044-2');
+    </script>
+</body>
+</html>

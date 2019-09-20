@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<link href="../../../resorce/img/common/favicon.ico" rel="shortcut icon" />
+<link href="../../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon">
+<link href="../../../resorce/css/common.css" rel="stylesheet">
+<link href="../../../resorce/css/pages.css" rel="stylesheet">
+</head>
+<body id="class_group">
+<div id="container">
+    <header>
+        <a :href="'../../detail/'+url+'/'+class_id" class="backbtn"></a>
+        <h1 class="overlap"><span>シャンドラ・イングリッシュ・スクール</span>グループ設定</h1>
+        <a href="javascript:void(0)" id="show_manage" class="rightbtn">管理</a>
+    </header>
+    <main>
+        <div id="group">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th class="cntr">曜日</th>
+                        <th>時間</th>
+                        <th class="cntr">グループ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="btns">
+                <ul>
+                    <li><a href="javascript:void(0)" id="save" class="forward">保存</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <section id="manage" class="modal">
+        <header>
+            <a class="closebtn"></a>
+            <h1>グループ管理</h1>
+        </header>
+        <main>
+            <div id="list">
+            </div>
+            <div class="btns">
+                <ul>
+                    <li><a href="javascript:void(0)" id="show_add" class="forward">グループ追加</a></li>
+                </ul>
+            </div>
+        </main>
+    </section>
+    
+    <section id="add" class="modal">
+        <header>
+            <a class="closebtn"></a>
+            <h1>グループ登録</h1>
+        </header>
+        <main>
+            <form>
+                <table>
+                    <tr>
+                        <th>グループ名</th>
+                        <td>
+                            <input type="text" name="name" class="name full" placeholder="３級">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>カラー</th>
+                        <td>
+                            <div id="color">
+                                <input id="col1" type="radio" name="color" value="1" checked>
+                                <label for="col1" class="color_1"></label>
+                                <input id="col2" type="radio" name="color" value="2">
+                                <label for="col2" class="color_2"></label>
+                                <input id="col3" type="radio" name="color" value="3">
+                                <label for="col3" class="color_3"></label>
+                                <input id="col4" type="radio" name="color" value="4">
+                                <label for="col4" class="color_4"></label>
+                                <input id="col5" type="radio" name="color" value="5">
+                                <label for="col5" class="color_5"></label>
+                                <input id="col6" type="radio" name="color" value="6">
+                                <label for="col6" class="color_6"></label>
+                                <input id="col7" type="radio" name="color" value="7">
+                                <label for="col7" class="color_7"></label>
+                                <input id="col8" type="radio" name="color" value="8">
+                                <label for="col8" class="color_8"></label>
+                                <input id="col9" type="radio" name="color" value="9">
+                                <label for="col9" class="color_9"></label>
+                                <input id="col10" type="radio" name="color" value="10">
+                                <label for="col10" class="color_10"></label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="btns">
+                    <ul>
+                        <li><input type="submit" class="forward" value="登録"></li>
+                    </ul>
+                </div>
+            </form>
+        </main>
+    </section>
+    
+    <section id="edit" class="modal">
+        <header>
+            <a class="closebtn"></a>
+            <h1>グループ編集</h1>
+        </header>
+        <main>
+            <form>
+                <table>
+                    <tr>
+                        <th>グループ名</th>
+                        <td>
+                            <input type="text" name="name" class="name full" placeholder="３級">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>カラー</th>
+                        <td>
+                            <div id="color">
+                                <input id="ed1" type="radio" name="color" value="1" checked>
+                                <label for="ed1" class="color_1"></label>
+                                <input id="ed2" type="radio" name="color" value="2">
+                                <label for="ed2" class="color_2"></label>
+                                <input id="ed3" type="radio" name="color" value="3">
+                                <label for="ed3" class="color_3"></label>
+                                <input id="ed4" type="radio" name="color" value="4">
+                                <label for="ed4" class="color_4"></label>
+                                <input id="ed5" type="radio" name="color" value="5">
+                                <label for="ed5" class="color_5"></label>
+                                <input id="ed6" type="radio" name="color" value="6">
+                                <label for="ed6" class="color_6"></label>
+                                <input id="ed7" type="radio" name="color" value="7">
+                                <label for="ed7" class="color_7"></label>
+                                <input id="ed8" type="radio" name="color" value="8">
+                                <label for="ed8" class="color_8"></label>
+                                <input id="ed9" type="radio" name="color" value="9">
+                                <label for="ed9" class="color_9"></label>
+                                <input id="ed10" type="radio" name="color" value="10">
+                                <label for="ed10" class="color_10"></label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="group_id">
+                <div class="btns">
+                    <ul>
+                        <li><input type="submit" class="forward" value="保存"></li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0)" id="show_delete" class="reg">削除</a>
+            </form>
+        </main>
+    </section>
+    
+    <section id="delete" class="comfirm">
+        <h1>削除確認</h1>
+        <p>本当にグループを削除しますか？</p>
+        <ul>
+            <li><a href="javascript:void(0)" class="cancelbtn">キャンセル</a></li>
+            <li><a href="javascript:void(0)" id="btn_delete">OK</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <nav>
+            <ul id="manager_navi">
+                <li><a :href="'../../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
+                <li><a :href="'../../../class/list/'+url" class="ico_class">クラス</a></li>
+                <li><a :href="'../../../student/list/'+url" class="ico_student">生徒</a></li>
+                <li><a :href="'../../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+            </ul>
+        </nav>
+        <div id="ad_small">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- dekita_fixed_bottom -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:320px;height:50px"
+                 data-ad-client="ca-pub-6292020854220769"
+                 data-ad-slot="1491563964"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </footer>
+</div>
+<script src="../../../resorce/libs/jquery-3.1.1.min.js"></script>
+<script src="../../../resorce/libs/jquery-ui.min.js"></script>
+<script src="../../../resorce/libs/jquery.validate.min.js"></script>
+<script src="../../../resorce/libs/vue.min.js"></script>
+<script src="../../../resorce/js/utility.js"></script>
+<script src="../../../resorce/js/common.js"></script>
+<script src="../../js/group.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137346044-2');
+</script>
+</body>
+</html>

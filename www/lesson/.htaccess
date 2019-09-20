@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+RewriteRule ^add/([^/]+)+ add.html?id=$1 [L]
+RewriteRule ^calendar/([^/]+)/+ calendar.html?id=$1 [L]
+RewriteRule ^mcalendar/([^/]+)/+ mcalendar.html?id=$1 [L]
