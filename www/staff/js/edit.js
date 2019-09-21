@@ -8,10 +8,9 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "staff/edit/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var staff_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var staff_id = getParam("staff", param);
     var app = new Vue({
         el: "#container",
         data: {
@@ -22,8 +21,7 @@ $(function () {
 
     //スクール情報取得
     var school_list = "";
-
-
+    
     $.ajax({
         url: AJAX_URL + "staff/edit.php",
         type: "POST",
@@ -110,7 +108,7 @@ $(function () {
                     fadeError("送信に失敗しました");
                 },
                 success: function (arr) {
-                    fadeNotice("正常に保存しました", "../../../staff/list/" + url);
+                    fadeNotice("正常に保存しました", "../staff/list.html?id=" + url);
                 }
             });
         } else {

@@ -8,7 +8,8 @@ $(function(){
     basicAuth(LOGIN_ID, TOKEN);
     
     //パラメータ取得
-    var url = escapeHTML($(location).attr("pathname").replace( APP_PATH+"student/list/", ""));
+    var param = location.search;
+    var url = getParam("id", param);
     var schoollists = JSON.parse(localStorage.getItem("school"));
     var filtered = $.grep(schoollists,function(elem, index) { return (elem.url == url);});
     var school_name = filtered[0].name;
@@ -32,7 +33,7 @@ $(function(){
                 str = str + 
                     "<dl>"+
                         "<dt class='sample'></dt>"+
-                        "<dd><a href='../detail/"+url+"/"+elem.student_id+"'>"+elem.lastname+" "+elem.firstname+"</a></dd>"+
+                        "<dd><a href='detail.html?id="+url+"&student="+elem.student_id+"'>"+elem.lastname+" "+elem.firstname+"</a></dd>"+
                     "</dl>";
             });
             $("#list").append(str);

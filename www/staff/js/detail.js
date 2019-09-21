@@ -8,10 +8,9 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "staff/detail/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var staff_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var staff_id = getParam("staff", param);
 
     //スタッフ情報取得
     $.ajax({

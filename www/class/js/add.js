@@ -11,14 +11,13 @@ $(function () {
     addLesson();
 
     //パラメータ取得
-    var url = escapeHTML($(location).attr("pathname").replace(APP_PATH + "class/add/", ""));
+    var param = location.search;
+    var url = getParam("id", param);
     var schoollists = JSON.parse(localStorage.getItem("school"));
     var filtered = $.grep(schoollists, function (elem, index) {
         return (elem.url == url);
     });
     var school_name = filtered[0].name;
-
-
     var app = new Vue({
         el: "#container",
         data: {
@@ -110,7 +109,7 @@ $(function () {
                     if (arr !== null) {
                         var data = $.parseJSON(arr);
                         var class_id = data;
-                        window.location.href = "../../lesson/add/" + url + "/" + class_id;
+                        window.location.href = "../lesson/add.html?id=" + url + "&class=" + class_id;
                     } else {
                         fadeError("登録に失敗しました");
                     }

@@ -6,9 +6,10 @@ $(function () {
 
     //会員認証
     basicAuth(LOGIN_ID, TOKEN);
-
+    
     //パラメータ取得
-    var url = escapeHTML($(location).attr("pathname").replace(APP_PATH + "class/list/", ""));
+    var param = location.search;
+    var url = getParam("id", param);
     var schoollists = JSON.parse(localStorage.getItem("school"));
     var filtered = $.grep(schoollists, function (elem, index) {
         return (elem.url == url);
@@ -23,7 +24,7 @@ $(function () {
     });
 
     //URL書換え
-    $("#btn_add").attr("href", "../add/" + url);
+    $("#btn_add").attr("href", "add.html?id=" + url);
 
     $.ajax({
         url: AJAX_URL + "class/list.php",
@@ -38,7 +39,7 @@ $(function () {
                 str = str +
                     "<dl>" +
                     "<dt class='sample'></dt>" +
-                    "<dd><a href='../detail/" + url + "/" + elem.class_id + "'>" + elem.name + "</a></dd>" +
+                    "<dd><a href='detail.html?id=" + url + "&class=" + elem.class_id + "'>" + elem.name + "</a></dd>" +
                     "</dl>";
             });
             $("#list").append(str);

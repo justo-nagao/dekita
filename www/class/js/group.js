@@ -8,11 +8,9 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "class/group/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var class_id = paramArray[1];
-
+    var param = location.search;
+    var url = getParam("id", param);
+    var class_id = getParam("class", param);
     var app = new Vue({
         el: "#container",
         data: {
@@ -20,7 +18,6 @@ $(function () {
             class_id: class_id
         }
     });
-
 
     /**
      *  一覧取得
@@ -288,7 +285,7 @@ $(function () {
             },
             success: function (arr) {
                 if (arr !== null) {
-                    fadeNotice("グループ設定を保存しました", "../../detail/" + url + "/" + class_id);
+                    fadeNotice("グループ設定を保存しました", "detail.html?id=" + url + "&class=" + class_id);
                 } else {
                     fadeError("登録に失敗しました");
                 }

@@ -75,7 +75,7 @@ $(function () {
                         });
                         localStorage.setItem("user", JSON.stringify(user));
                         //スクール設定
-                        window.location.href = "../school/add";
+                        window.location.href = "../school/add.html";
                     }
                 }
             });

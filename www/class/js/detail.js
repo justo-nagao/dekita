@@ -6,12 +6,11 @@ $(function () {
 
     //会員認証
     basicAuth(LOGIN_ID,TOKEN);
-
+    
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "class/detail/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var class_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var class_id = getParam("class", param);
 
     $.ajax({
         url: AJAX_URL + "class/detail.php",

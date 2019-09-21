@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
 <title></title>
-<link href="../../resorce/img/common/favicon.ico" rel="shortcut icon" /> 
-<link href="../../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
-<link href="../../resorce/css/common.css" rel="stylesheet">
-<link href="../../resorce/css/pages.css" rel="stylesheet">
+<link href="../resorce/img/common/favicon.ico" rel="shortcut icon" /> 
+<link href="../resorce/img/common/webclip.png" sizes="144×144" rel="apple-touch-icon" >
+<link href="../resorce/css/common.css" rel="stylesheet">
+<link href="../resorce/css/pages.css" rel="stylesheet">
 </head>
 <body id="student_add">
     
     <div id="container">
         <header>
-            <a :href="'../list/'+url" class="backbtn"></a>
+            <a :href="'list.html?id='+url" class="backbtn"></a>
             <h1 class="overlap"></h1>
         </header>
         <main>
@@ -34,30 +34,30 @@
             <h1>登録完了</h1>
             <p>生徒登録が完了しました。<br>レッスンカレンダーを見てみましょう！</p>
             <ul>
-                <li><a :href="'../../lesson/calendar/'+url+'/'">OK</a></li>
+                <li><a :href="'../lesson/calendar.html?id='+url+'/'">OK</a></li>
             </ul>
         </section>
 
         <footer>
             <nav>
                 <ul id="manager_navi">
-                    <li><a :href="'../../lesson/mcalendar/'+url+'/'" class="ico_calendar">カレンダー</a></li>
-                    <li><a :href="'../../class/list/'+url" class="ico_class">クラス</a></li>
-                    <li><a :href="'../../student/list/'+url" class="ico_student">生徒</a></li>
-                    <li><a :href="'../../staff/list/'+url" class="ico_staff">スタッフ</a></li>
+                    <li><a :href="'../lesson/mcalendar.html?id='+url+''" class="ico_calendar">カレンダー</a></li>
+                    <li><a :href="'../class/list.html?id='+url" class="ico_class">クラス</a></li>
+                    <li><a :href="'../student/list.html?id='+url" class="ico_student">生徒</a></li>
+                    <li><a :href="'../staff/list.html?id='+url" class="ico_staff">スタッフ</a></li>
                 </ul>
             </nav>
         </footer>
     </div>
     
-    <script src="../../resorce/libs/jquery-3.1.1.min.js"></script>
-    <script src="../../resorce/libs/jquery-ui.min.js"></script>
-    <script src="../../resorce/libs/jquery.validate.min.js"></script>
-    <script src="../../resorce/libs/vue.min.js"></script>
-    <script src="../../resorce/js/utility.js"></script>
-    <script src="../../resorce/js/common.js"></script>
-    <script src="../../resorce/js/sidebar.js"></script>
-    <script src="../js/add.js"></script>
+    <script src="../resorce/libs/jquery-3.1.1.min.js"></script>
+    <script src="../resorce/libs/jquery-ui.min.js"></script>
+    <script src="../resorce/libs/jquery.validate.min.js"></script>
+    <script src="../resorce/libs/vue.min.js"></script>
+    <script src="../js/utility.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="./js/add.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];

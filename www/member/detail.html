@@ -19,11 +19,11 @@
         
         <main class="simplelist">
             <ul>
-                <li><a href="../member/edit">プロフィール変更</a></li>
+                <li><a href="../member/edit.html">プロフィール変更</a></li>
             </ul>
             <ul>
                 <li><span>バージョン<em id="version">v1.00</em></span></li>
-                <li><a href="../oauth/logout">ログアウト</a></li>
+                <li><a href="../oauth/logout.html">ログアウト</a></li>
             </ul>
             <p><a href="javascript:void(0)" id="show_withdraw" class="reg">退会する</a></p>
         </main>
@@ -49,17 +49,17 @@
                     <div v-if="school.length">
                         <h2>スクール</h2>
                         <ul v-if="kubun === '1'">
-                            <li v-for="sch in school"><a :href="'../school/detail/'+sch.url+''">{{ sch.name }}</a></li>
-                            <li class="btn_add"><a href="../school/add">スクール追加</a></li>
+                            <li v-for="sch in school"><a :href="'../school/detail.html?id='+sch.url+''">{{ sch.name }}</a></li>
+                            <li class="btn_add"><a href="../school/add.html">スクール追加</a></li>
                         </ul>
                         <ul v-else>
-                            <li v-for="sch in school"><a :href="'../lesson/calendar/'+sch.url+'/'">{{ sch.name }}</a></li>
+                            <li v-for="sch in school"><a :href="'../lesson/calendar.html?id='+sch.url+''">{{ sch.name }}</a></li>
                         </ul>
                     </div>
                     <div v-if="student.length">
                         <h2>生徒</h2>
                         <ul>
-                            <li v-for="stu in student"><a :href="'../student/detail/'+url+'/'+stu.student_id+''">{{ stu.lastname }} {{ stu.firstname }}</a></li>
+                            <li v-for="stu in student"><a :href="'../student/detail.html?id='+url+'&student='+stu.student_id+''">{{ stu.lastname }} {{ stu.firstname }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,9 +72,9 @@
     <script src="../resorce/libs/jquery-ui.min.js"></script>
     <script src="../resorce/libs/jquery.validate.min.js"></script>
     <script src="../resorce/libs/vue.min.js"></script>
-    <script src="../resorce/js/utility.js"></script>
-    <script src="../resorce/js/common.js"></script>
-    <script src="../resorce/js/sidebar.js"></script>
+    <script src="../js/utility.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/sidebar.js"></script>
     <script src="js/detail.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137346044-2"></script>
     <script>

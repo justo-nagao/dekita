@@ -15,13 +15,22 @@ $(function () {
     });
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "lesson/calendar/", ""));
+    var param = location.search;
+    var url = getParam("id", param);
+    var tdate = getParam("tdate", param);
+    var student = getParam("student", param);
+    
+    
+    /*
     var paramArray = param.split("/");
-    var url = paramArray[0];
+    var url = getParam("id", param);
     var spec = paramArray[1];
     var specArray = spec.split("s");
     var tdate = specArray[0];
     var student = specArray[1];
+    */
+    
+    
     var student_id = "";
     var schoollists = JSON.parse(localStorage.getItem("school"));
     var filtered = $.grep(schoollists, function (elem, index) {
@@ -46,9 +55,9 @@ $(function () {
             type: "init"
         },
         success: function (arr) {
-
+            
             $("#loading").show();
-
+            
             var data = $.parseJSON(arr);
             $("input[name='absent_type']").val(data[0].absent_type);
             $("input[name='absent_day']").val(data[0].absent_day);
@@ -228,10 +237,10 @@ $(function () {
                     $("#absence").hide();
                     $(".plan[data-id='" + lesson_id + "']").removeClass("target");
                     $(".plan[data-id='" + lesson_id + "']").addClass("absent");
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar.html?id=" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeNotice("欠席申請が完了しました", uri);
                 } else {
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar.html?id=" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeError("欠席申請に失敗しました", uri);
                 }
             }
@@ -267,10 +276,10 @@ $(function () {
                     $("#absence").hide();
                     $(".plan[data-id='" + lesson_id + "']").removeClass("absent");
                     $(".plan[data-id='" + lesson_id + "']").addClass("target");
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar.html?id=" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeNotice("欠席をキャンセルしました", uri);
                 } else {
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar.html?id=" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeError("キャンセルに失敗しました", uri);
                 }
             }
@@ -397,10 +406,10 @@ $(function () {
                     $("#transfer").hide();
                     $(".plan[data-id='" + lesson_id + "']").removeClass("vacancy");
                     $(".plan[data-id='" + lesson_id + "']").addClass("transfer");
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar.html?id=" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeNotice("振替処理が完了しました", uri);
                 } else {
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar.html?id=" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeNotice("振替処理に失敗しました", uri);
                 }
             }
@@ -432,10 +441,10 @@ $(function () {
                     $("#transfer").hide();
                     $(".plan[data-id='" + lesson_id + "']").removeClass("transfer");
                     $(".plan[data-id='" + lesson_id + "']").addClass("vacancy");
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar/" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeNotice("振替をキャンセルしました", uri);
                 } else {
-                    var uri = "../../../lesson/calendar/" + url + "/" + tdate + "s" + student_id + "";
+                    var uri = "../lesson/calendar/" + url + "&tdate=" + tdate + "&student=" + student_id + "";
                     fadeNotice("振替キャンセルに失敗しました", uri);
                 }
 

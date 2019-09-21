@@ -8,10 +8,9 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
     
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "student/edit/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var student_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var student_id = getParam("student", param);
     var app = new Vue({
         el: "#container",
         data: {
@@ -93,7 +92,7 @@ $(function () {
                 },
                 success: function (arr) {
                     //生徒一覧
-                    window.location.href = "../../../student/detail/"+url+"/"+student_id;
+                    window.location.href = "../student/detail.html?id="+url+"&student="+student_id;
                 }
             });
 
@@ -130,7 +129,7 @@ $(function () {
                 fadeError("送信に失敗しました");
             },
             success: function (arr) {
-                fadeError("生徒を削除しました", "../../../oauth/receiver?login_id="+LOGIN_ID+"&token=");
+                fadeError("生徒を削除しました", "../oauth/receiver.html?login_id="+LOGIN_ID+"&token=");
             }
         });
     });

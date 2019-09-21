@@ -8,10 +8,9 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
     
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "student/detail/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var student_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var student_id = getParam("student", param);
     var app = new Vue({
         el: "#container",
         data: {

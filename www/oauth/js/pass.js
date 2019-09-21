@@ -68,11 +68,11 @@ $(function () {
                     else {
                         //登録済
                         if(data.type=="linkage"){
-                           window.location.href = "../../oauth/linkage/" + url +"/" + data.login_id;
+                           window.location.href = "../oauth/linkage.html?id=" + url +"&login=" + data.login_id;
                         }
                         //未登録
                         else if(data.type=="apply"){
-                            window.location.href = "../../oauth/apply/" + url;
+                            window.location.href = "../oauth/apply.html?id=" + url;
                         }
                     }
                 }

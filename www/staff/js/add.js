@@ -8,9 +8,8 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "staff/add/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
+    var param = location.search;
+    var url = getParam("id", param);
     var app = new Vue({
         el: "#container",
         data: {
@@ -86,7 +85,7 @@ $(function () {
                     fadeError("送信に失敗しました");
                 },
                 success: function (arr) {
-                    fadeNotice("スタッフを登録しました", "../../staff/list/" + url);
+                    fadeNotice("スタッフを登録しました", "../staff/list.html?id=" + url);
                 }
             });
         } else {

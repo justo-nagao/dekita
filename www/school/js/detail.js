@@ -8,9 +8,8 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "school/detail/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
+    var param = location.search;
+    var url = getParam("id", param);
 
     $.ajax({
         url: AJAX_URL + "school/detail.php",

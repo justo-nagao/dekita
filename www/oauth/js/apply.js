@@ -95,7 +95,7 @@ $(function () {
                         });
                         localStorage.setItem("user", JSON.stringify(user));
                         //生徒登録
-                        window.location.href = "../../student/add/" + url;
+                        window.location.href = "../student/add.html?id=" + url;
                     }
                 }
             });

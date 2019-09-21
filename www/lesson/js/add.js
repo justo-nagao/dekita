@@ -11,12 +11,11 @@ $(function () {
     if (AUTHORITY == "guest") {
         $("#new_explain").show();
     }
-
+    
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "lesson/add/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var class_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var class_id = getParam("class", param);
     var schoollists = JSON.parse(localStorage.getItem("school"));
     var filtered = $.grep(schoollists, function (elem, index) {
         return (elem.url == url);
@@ -136,7 +135,7 @@ $(function () {
                 if (AUTHORITY == "guest") {
                     $("#new_regist").show();
                 } else {
-                    fadeNotice("レッスンを追加いたしました", "../../../lesson/mcalendar/" + url + "/");
+                    fadeNotice("レッスンを追加いたしました", "../lesson/mcalendar.html?id=" + url + "");
                 }
             }
         });

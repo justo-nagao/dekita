@@ -110,7 +110,7 @@ $(function () {
                         localStorage.setItem("school", JSON.stringify(school));
 
                         //クラス登録
-                        window.location.href = "../class/add/" + data.url;
+                        window.location.href = "../class/add.html?id=" + data.url;
                     }
                 }
             });

@@ -82,7 +82,7 @@ $(function () {
                 },
                 success: function (arr) {
                     var data = $.parseJSON(arr);
-                    fadeNotice("登録が完了いたしました", "../../../oauth/receiver?login_id=" + login_id + "&token=");
+                    fadeNotice("登録が完了いたしました", "../oauth/receiver.html?login_id=" + login_id + "&token=");
                 }
             });
         }

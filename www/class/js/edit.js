@@ -8,10 +8,9 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "class/edit/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var class_id = paramArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var class_id = getParam("class", param);
     var app = new Vue({
         el: "#container",
         data: {
@@ -136,7 +135,7 @@ $(function () {
                     type: "update"
                 },
                 success: function (arr) {
-                    var redirecturl = "../../../class/detail/" + url + "/" + class_id;
+                    var redirecturl = "../class/detail.html?id=" + url + "&class=" + class_id;
                     fadeNotice("保存しました", redirecturl);
                 }
             });
@@ -213,7 +212,7 @@ $(function () {
             },
             success: function (arr) {
                 //クラス一覧
-                window.location.href = "../../../class/list/" + url;
+                window.location.href = "../class/list.html?id=" + url;
             }
         });
     });

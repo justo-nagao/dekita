@@ -3,7 +3,7 @@
  *  初期表示
  */
 $(function () {
-
+    
     //会員認証
     basicAuth(LOGIN_ID, TOKEN);
 
@@ -15,15 +15,12 @@ $(function () {
     });
 
     $("#loading").show();
-
+    
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "lesson/mcalendar/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
-    var spec = paramArray[1];
-    var specArray = spec.split("c");
-    var tdate = specArray[0];
-    var tclass = specArray[1];
+    var param = location.search;
+    var url = getParam("id", param);
+    var tdate = getParam("tdate", param);
+    var tclass = getParam("class", param);
     var class_id = "";
     var schoollists = JSON.parse(localStorage.getItem("school"));
     var filtered = $.grep(schoollists, function (elem, index) {
@@ -51,7 +48,7 @@ $(function () {
             type: "init"
         },
         success: function (arr) {
-
+            
             var data = $.parseJSON(arr);
 
             //クラス選択
@@ -350,7 +347,7 @@ $(function () {
         } else {
             addclass = class_id;
         }
-        $("header a.rightbtn").attr("href", "../../add/" + url + "/" + addclass + "");
+        $("header a.rightbtn").attr("href", "add.html?id=" + url + "&class=" + addclass + "");
     }
 
     /**

@@ -12,7 +12,8 @@ $(function () {
     var mode = "";
 
     //パラメータ取得
-    var url = escapeHTML($(location).attr("pathname").replace(APP_PATH + "student/add/", ""));
+    var param = location.search;
+    var url = getParam("id", param);
     var prev_url = APP_DOMAIN + APP_PATH + "student/list/" + url;
     var app = new Vue({
         el: "#container",
@@ -139,7 +140,7 @@ $(function () {
                         //ローカルデータ更新
                         setLocalStorage(data);
                         $("#success").show();
-                        $(".btns a").attr("href", "../../lesson/calendar/" + url + "/");
+                        $(".btns a").attr("href", "../lesson/calendar.html?id=" + url + "");
                     }
                 }
             });

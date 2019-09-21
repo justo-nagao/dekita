@@ -8,9 +8,8 @@ $(function () {
     basicAuth(LOGIN_ID, TOKEN);
 
     //パラメータ取得
-    var param = escapeHTML($(location).attr("pathname").replace(APP_PATH + "school/edit/", ""));
-    var paramArray = param.split("/");
-    var url = paramArray[0];
+    var param = location.search;
+    var url = getParam("id", param);
     var app = new Vue({
         el: "#container",
         data: {
@@ -193,7 +192,7 @@ $(function () {
                     fadeError("送信に失敗しました");
                 },
                 success: function (arr) {
-                    fadeNotice("正常に保存しました", "../../school/detail/" + url + "");
+                    fadeNotice("正常に保存しました", "../school/detail.html?id=" + url + "");
                 }
             });
         }
@@ -266,7 +265,7 @@ $(function () {
             },
             success: function (arr) {
                 //クラス一覧
-                window.location.href = "../../school/list";
+                window.location.href = "../school/list.html";
             }
         });
     });

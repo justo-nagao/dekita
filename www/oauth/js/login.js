@@ -43,9 +43,9 @@ $(function () {
                     //ローカルデータ更新
                     setLocalStorage(data);
                     if (kubun == 1 || kubun == 2) {
-                        window.location.href = "../lesson/mcalendar/" + url + "/";
+                        window.location.href = "../lesson/mcalendar.html?id=" + url + "";
                     } else {
-                        window.location.href = "../lesson/calendar/" + url + "/";
+                        window.location.href = "../lesson/calendar.html?id=" + url + "";
                     }
                 }
             }
@@ -107,9 +107,9 @@ $(function () {
                         //ローカルデータ更新
                         setLocalStorage(data);
                         if (kubun == 1) {
-                            window.location.href = "../lesson/mcalendar/" + url + "/";
+                            window.location.href = "../lesson/mcalendar.html?id=" + url + "";
                         } else {
-                            window.location.href = "../lesson/calendar/" + url + "/";
+                            window.location.href = "../lesson/calendar.html?id=" + url + "";
                         }
                     }
                 }
