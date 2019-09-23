@@ -244,6 +244,6 @@ function clipboadCopy() {
  */
 function basicAuth(login_id, token) {
     if (login_id == "" || token == "") {
-        window.location.href = APP_DOMAIN + "/app/oauth/login.html";
+        window.location.href = APP_DOMAIN + "app/oauth/login.html";
     }
 }

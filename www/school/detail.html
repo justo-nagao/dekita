@@ -110,8 +110,8 @@
             <h3>招待ページアドレスを送る</h3>
             <p>招待ページのアドレスとパスコードを<br>生徒に送ることでアプリに招待します。</p>
             <ul id="share">
-                <li><a :href="'https://social-plugins.line.me/lineit/share?url='+domain+'/app/oauth/pass/'+url+''">LINE</a></li>
-                <li><a :href="'mailto:?subject='+name+'&body='+name+'への登録はこちらから%0d%0a%0d%0a▼▼▼アドレス▼▼▼%0d%0a'+domain+'/app/oauth/pass/'+url+''">メール</a></li>
+                <li><a :href="'https://social-plugins.line.me/lineit/share?url='+domain+'app/oauth/pass/'+url+''">LINE</a></li>
+                <li><a :href="'mailto:?subject='+name+'&body='+name+'への登録はこちらから%0d%0a%0d%0a▼▼▼アドレス▼▼▼%0d%0a'+domain+'app/oauth/pass/'+url+''">メール</a></li>
                 <li id="copy"><button onmousedown="clipboadCopy()">アドレスコピー</button></li>
             </ul>
             <h3>パスコード</h3>

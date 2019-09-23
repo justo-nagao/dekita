@@ -25,7 +25,7 @@ $(function () {
         success: function (arr) {
             var data = $.parseJSON(arr);
             var passcode = data.passcode.split("");
-            var entry = "" + APP_DOMAIN + "/app/oauth/pass/" + url;
+            var entry = "" + APP_DOMAIN + "app/oauth/pass/" + url;
             $("header h1").text(data.name);
             $("#name").text(data.name);
             $("#email").text(data.email);

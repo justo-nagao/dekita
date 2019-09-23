@@ -21,7 +21,7 @@ $(function () {
         },
         success: function (arr) {
             var data = $.parseJSON(arr);
-            var entry = "" + APP_DOMAIN + "/app/oauth/pass/" + url;
+            var entry = "" + APP_DOMAIN + "app/oauth/pass/" + url;
             var qrcode = "https://api.qrserver.com/v1/create-qr-code/?data=" + entry + "&size=130x130";
             var addr = data[0].pref + " " + data[0].addr;
             var passcode = data[0].passcode.split("");
